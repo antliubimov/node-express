@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const Handlebars = require('handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
@@ -46,7 +47,7 @@ const PORT = process.env.PORT || 3000;
 
 async function start() {
   try {
-    const url = `mongodb+srv://antliubim:Ye5DC9ZBBwSbLQKA@cluster0.ixcl0.mongodb.net/shop`;
+    const url = process.env.DB_CONN;
     await mongoose.connect(url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,

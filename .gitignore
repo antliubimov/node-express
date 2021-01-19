@@ -111,6 +111,8 @@ nbproject
 *.sublime-workspace
 .idea
 
+.env
+
 # Folders to ignore
 .sass-cache
 .tmp
