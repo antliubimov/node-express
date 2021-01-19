@@ -1,4 +1,4 @@
-<h1>Basket</h1>
+<h1>Cart</h1>
 
 <div id="card">
     {{#if courses.length}}
@@ -24,7 +24,11 @@
     </table>
 
     <p><strong>Price:</strong> <span class="price">{{price}}</span></p>
+
+    <form action="/orders" method="post">
+        <button type="submit" class="btn">Make an order</button>
+    </form>
     {{else}}
-    <p>Card is empty</p>
+    <p>The cart is empty</p>
     {{/if}}
 </div>
