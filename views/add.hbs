@@ -7,7 +7,7 @@
         <span class="helper-text" data-error="Enter a name"></span>
     </div>
     <div class="input-field">
-        <input name="price" id="price" type="number" class="validate" required min="1 ">
+        <input name="price" id="price" type="number" class="validate" required min="1">
         <label for="price">A price of a course</label>
         <span class="helper-text" data-error="Enter a price"></span>
     </div>
@@ -16,6 +16,6 @@
         <label for="img">URL of an image</label>
         <span class="helper-text" data-error="Enter an image url"></span>
     </div>
-
+    <input type="hidden" name="_csrf" value="{{csrf}}">
     <button class="btn btn-primary">Add a course</button>
 </form>

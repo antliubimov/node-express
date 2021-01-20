@@ -1,11 +1,12 @@
-const { Schema, model } = require('mongoose')
+const {Schema, model} = require('mongoose')
 
 const userSchema = new Schema({
   email: {
     type: String,
     required: true
   },
-  name: {
+  name: String,
+  password: {
     type: String,
     required: true
   },
@@ -27,6 +28,7 @@ const userSchema = new Schema({
   }
 })
 
+
 userSchema.methods.addToCart = function(course) {
   const items = [...this.cart.items]
   const idx = items.findIndex(c => {
@@ -42,11 +44,12 @@ userSchema.methods.addToCart = function(course) {
     })
   }
 
-  this.cart = { items }
+  this.cart = {items}
   return this.save()
 }
 
-userSchema.methods.removeFromCart = function (id) {
+
+userSchema.methods.removeFromCart = function(id) {
   let items = [...this.cart.items]
   const idx = items.findIndex(c => c.courseId.toString() === id.toString())
 
@@ -56,12 +59,12 @@ userSchema.methods.removeFromCart = function (id) {
     items[idx].count--
   }
 
-  this.cart = { items }
+  this.cart = {items}
   return this.save()
 }
 
 userSchema.methods.clearCart = function() {
-  this.cart = { items: [] }
+  this.cart = {items: []}
   return this.save()
 }
 
